@@ -17,7 +17,7 @@ before_build:
   - .\pahket.exe install
 
 build_script:
-  - .\run_tests.ps1
+  - & .\run_tests.ps1
 
 skip_commits:
   files:
