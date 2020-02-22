@@ -4,5 +4,5 @@
 #Include <JUnit>
 #Include Includes.ahk
 
-#Include test/ABCTest.ahk
-Yunit.Use(YunitJUnit, YunitStdout).Test(ABCTest)
+#Include test/ABC_spec.ahk
+Yunit.Use(YunitJUnit, YunitStdout).Test(ABC_spec)
