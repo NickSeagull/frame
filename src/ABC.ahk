@@ -7,15 +7,19 @@ class ABC {
   ; }
 
   __Call(methodName, params*){
-    if(!this[methodName]){
+    MsgBox % "Calling " . methodName
+    if !this[methodName]
       throw Exception("undefined method `" . methodName . "' for ", -1)
-    }
-    this[methodName].call(params*)
+    MsgBox % "Calling " . methodName
+    result := this[methodName].call(params*)
+    MsgBox % "Got " . result
+    return result
   }
 
   __Get(propName){
     if(!this[propName]){
       throw Exception("Cannot get property named " . propName, -1)
     }
+    return this[propName]
   }
 }
