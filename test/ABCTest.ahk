@@ -5,7 +5,7 @@ class ABCTest {
     }
   }
 
-  test_call_must_throw_on_unexpected_method(){
+  the_call_metamethod_must_throw_on_unexpected_method(){
     thrown := false
     try {
       thrown := this.TestedClass.iDontExist()
@@ -15,7 +15,7 @@ class ABCTest {
     Yunit.assert(thrown == true)
   }
 
-  test_call_must_not_throw_on_existing_method(){
+  the_call_metamethod_must_not_throw_on_existing_method(){
     thrown := false
     try {
       thrown := this.TestedClass.iDontThrow()
