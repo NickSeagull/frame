@@ -6,6 +6,7 @@ class ABCTestedClass extends ABC {
 class ABC_spec {
 
   class the_call_metamethod {
+
     should_throw_on_unexpected_method(){
       thrown := false
       try {
@@ -25,6 +26,7 @@ class ABC_spec {
       }
       Yunit.assert(thrown == false)
     }
+
   }
 
 
