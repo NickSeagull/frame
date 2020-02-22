@@ -1,0 +1,1 @@
+& "$env:ProgramFiles\AutoHotkey\AutoHotkey.exe" ".\TestSuite.ahk" | more
