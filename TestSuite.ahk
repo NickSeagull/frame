@@ -2,7 +2,7 @@
 #Include <StdOut>
 #Include <JUnit>
 #Include <Window>
-#Include Includes.ahk
+#Include Init.ahk
 
 #Include test/ABC_spec.ahk
 
