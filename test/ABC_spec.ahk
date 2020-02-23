@@ -1,8 +1,16 @@
 class ABCTestedClass extends ABC {
+
   iDontThrow(){
     return false
   }
   static existingProperty := "Hello"
+}
+
+class SubTestClass extends ABCTestedClass {
+}
+
+class OrphanClass extends ABC{
+
 }
 
 class ABC_spec {
@@ -81,10 +89,19 @@ class ABC_spec {
   }
 
   class the_isSubClass_method{
-    should_return_true_for_a_class_that_derives_directly_from_ABC(){
+    should_return_true_for_a_class_that_derives_directly(){
       derives := ABCTestedClass.isSubClass(ABC)
       assertEq(derives, true)
     }
 
+    should_return_true_for_a_class_that_derives_transitively(){
+      derives := SubTestClass.isSubClass(ABC)
+      assertEq(derives, true)
+    }
+
+    should_return_false_for_a_class_that_is_not_a_subclass(){
+      derives := OrphanClass.isSubClass(ABCTestedClass)
+      assertEq(derives, false)
+    }
   }
 }
