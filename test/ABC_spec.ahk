@@ -57,6 +57,32 @@ class ABC_spec {
     }
   }
 
+  class the_set_metafunction{
+
+    should_throw_on_unexpected_property(){
+      thrown := false
+      x := 12
+      try {
+        ABCTestedClass.nonExitentProperty := "some value"
+      } catch e {
+        thrown := true
+      }
+      Yunit.assert(thrown, "Did not throw")
+    }
+
+    should_not_throw_on_exiting_property(){
+      thrown := false
+      x := ""
+      try {
+        ABCTestedClass.existingProperty := "world"
+        x := ABCTestedClass.existingProperty
+      } catch e {
+        thrown := true
+      }
+      Yunit.assert(thrown == false, "Did throw")
+      assertEq(x, "world")
+    }
+  }
 
 
 }
