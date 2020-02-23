@@ -8,7 +8,6 @@ class ABCTestedClass extends ABC {
 class ABC_spec {
 
   class the_call_metafunction {
-
     should_throw_on_unexpected_method(){
       thrown := false
       try {
@@ -28,11 +27,9 @@ class ABC_spec {
       }
       Yunit.assert(thrown == false)
     }
-
   }
 
   class the_get_metafunction{
-
     should_throw_on_unexpected_property(){
       thrown := false
       x := 12
@@ -58,7 +55,6 @@ class ABC_spec {
   }
 
   class the_set_metafunction{
-
     should_throw_on_unexpected_property(){
       thrown := false
       x := 12
@@ -83,6 +79,5 @@ class ABC_spec {
       assertEq(x, "world")
     }
   }
-
 
 }
