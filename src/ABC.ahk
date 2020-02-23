@@ -1,25 +1,9 @@
-/**
-*
-*/
 class ABC {
-  ; __Type(){
-  ;   return this.__class
-  ; }
-
-  __Call(methodName, params*){
-    MsgBox % "Calling " . methodName
-    if !this[methodName]
-      throw Exception("undefined method `" . methodName . "' for ", -1)
-    MsgBox % "Calling " . methodName
-    result := this[methodName].call(params*)
-    MsgBox % "Got " . result
-    return result
+  __get(name){
+    throw Exception("property ``" . name . "' does not exist on class ``" . this.__class . "'`n", -1)
   }
 
-  __Get(propName){
-    if(!this[propName]){
-      throw Exception("Cannot get property named " . propName, -1)
-    }
-    return this[propName]
+  __call(name){
+    throw Exception("method ``" . name . "' does not exist on class ``" . this.__class . "'`n", -1)
   }
 }

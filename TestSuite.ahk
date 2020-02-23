@@ -1,5 +1,3 @@
-#NoTrayIcon
-#Persistent
 #Include <Yunit>
 #Include <StdOut>
 #Include <JUnit>
@@ -7,4 +5,10 @@
 #Include Includes.ahk
 
 #Include test/ABC_spec.ahk
-Yunit.Use(YunitStdOut).Test(ABC_spec)
+
+assertEq(expected, actual){
+  Yunit.assert(expected == actual, "Expected ``" . expected . "' but got ``" . actual . "'`n")
+}
+
+Yunit.Use(YunitJUnit, YunitStdOut).Test(ABC_spec)
+exitapp

@@ -1,7 +1,8 @@
 $allOutput = & "$env:ProgramFiles\AutoHotkey\AutoHotkey.exe" ".\TestSuite.ahk" | more 2>&1
 
-Write-Host $allOutput
 if ($allOutput -clike "*FAIL*") {
-  Write-Host "Exit failure"
+  Write-Output $allOutput
   exit 1
 }
+
+Write-Host "ALL TESTS PASSING"

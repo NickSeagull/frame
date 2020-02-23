@@ -7,28 +7,33 @@ class ABCTestedClass extends ABC {
 
 class ABC_spec {
 
-    the_call_metamethod_should_throw_on_unexpected_method(){
+  class the_call_metafunction {
+
+    should_throw_on_unexpected_method(){
       thrown := false
       try {
         ABCTestedClass.iDontExist()
       } catch e {
-        MsgBox (e.message)
         thrown := true
       }
+      Yunit.assert(thrown)
     }
 
-    the_call_metamethod_should_not_throw_on_existing_method(){
+    should_not_throw_on_existing_method(){
       thrown := false
       try {
         ABCTestedClass.iDontThrow()
       } catch e {
-        MsgBox (e.message)
         thrown := true
       }
+      Yunit.assert(thrown == false)
     }
 
-    the_get_metamethod_should_throw_on_unexpected_property(){
-      Msgbox test 3
+  }
+
+  class the_get_metafunction{
+
+    should_throw_on_unexpected_property(){
       thrown := false
       x := 12
       try {
@@ -36,10 +41,10 @@ class ABC_spec {
       } catch e {
         thrown := true
       }
+      Yunit.assert(thrown)
     }
 
-    the_get_metamethod_should_not_throw_on_exiting_property(){
-      Msgbox test 4
+    should_not_throw_on_exiting_property(){
       thrown := false
       x := ""
       try {
@@ -47,6 +52,11 @@ class ABC_spec {
       } catch e {
         thrown := true
       }
+      Yunit.assert(thrown == false, "Did throw")
+      assertEq(x, "Hello")
     }
+  }
+
+
 
 }
