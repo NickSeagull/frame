@@ -80,4 +80,11 @@ class ABC_spec {
     }
   }
 
+  class the_isSubClass_method{
+    should_return_true_for_a_class_that_derives_directly_from_ABC(){
+      derives := ABCTestedClass.isSubClass(ABC)
+      assertEq(derives, true)
+    }
+
+  }
 }
