@@ -7,7 +7,7 @@
 #Include test/ABC_spec.ahk
 #Include test/StdLib_spec.ahk
 
-assertEq(expected, actual){
+assertEq(actual, expected){
   Yunit.assert(expected == actual, "Expected ``" . expected . "' but got ``" . actual . "'`n")
 }
 
