@@ -1,6 +1,5 @@
 class ABC {
   __get(name){
-    MsgBox % "Attempting to get " . name . " in class " . this.__class
     super := ObjGetBase(this)
     while (super.__class != ""){
       if(ObjHasKey(super, name)){
