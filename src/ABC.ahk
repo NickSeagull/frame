@@ -12,7 +12,8 @@ class ABC {
   }
 
   __set(name, value){
-    throw Exception("property ``" . name . "' does not exist on class ``" . this.__class . "'`n", -1)
+    actualValue := this[name]
+    this[name] := value
   }
 
   __call(name, args*){

@@ -86,6 +86,19 @@ class ABC_spec {
       Yunit.assert(thrown == false, "Did throw")
       assertEq(x, "world")
     }
+
+    should_not_throw_on_exiting_property_of_superclass(){
+      thrown := false
+      x := ""
+      try {
+        SubTestClass.existingProperty := "world"
+        x := SubTestClass.existingProperty
+      } catch e {
+        thrown := true
+      }
+      Yunit.assert(thrown == false, "Did throw")
+      assertEq(x, "world")
+    }
   }
 
   class the_isSubClass_method{
