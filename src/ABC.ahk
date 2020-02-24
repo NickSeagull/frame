@@ -17,17 +17,15 @@ class ABC {
   }
 
   __call(name, args*){
-    if(ObjHasKey(this, name)){
-      method := ObjRawGet(this, name)
-      return method.Call(this, args*)
-    }
     super := ObjGetBase(this)
-    superClass := super.__class
-    reachedTop := superClass == ""
-    if(reachedTop){
-      throw Exception("method ``" . name . "' does not exist on class ``" . this.__class . "'`n", -1)
+    while (super.__class != ""){
+      if(ObjHasKey(super, name)){
+        result := ObjRawGet(super, name)
+        return result.Call(super, args*)
+      }
+      super := ObjGetBase(super)
     }
-    return super[name].Call(super, args*)
+    throw Exception("method ``" . name . "' does not exist on class ``" . this.__class . "'`n", -1)
   }
 
   isSubClass(cls){
